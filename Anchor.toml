@@ -1,0 +1,24 @@
+[programs.localnet]
+# sol_nft_staking = "3zPPaZhN3tAkSJhjcEcyT7kAM6b2stQmJf65Fw9sMZa3"
+sol_nft_staking = "88rZfJqMSDNrLFXkyyQvfQ1Unsbzv33ZyaocJpN3f4k2"
+
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+# wallet = "./test-keypair.json"
+wallet = "/home/eric/.config/solana/id.json"
+
+[test]
+# Clone the metadata program and the executable account associated with it
+# for use in integration tests
+clone = [
+  {address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"}, 
+  {address = "PwDiXFxQsGra4sFFTT8r1QWRMd4vfumiWC1jfWNfdYT"}
+]
+validator = {url = "mainnet-beta"}
+
+[scripts]
+test = "npx ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
